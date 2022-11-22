@@ -1,19 +1,16 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.proyecto1p_rosario_garcia_guerrero;
-
 import java.util.ArrayList;
 import manejoArchivos.ManejoArchivos;
-
 /**
  *
- * @author julio
+ *  @author julio
  */
 public class Sistema {
-
-    /**
+       /**
      * @param args the command line arguments
      */
 //    private static ArrayList<Usuario> listaUsuario;
@@ -28,13 +25,8 @@ public class Sistema {
 //        System.out.println(iti);
 //        System.out.println(vue);
 
-    }
-    
-    
-    
-    
-    
-    //getters y setters
+}
+ //getters y setters
 
     //Cargar datos de txt a las ArrayList de Usuario, Vuelos, etc
     public static void cargarUsuario(String nombreArchivoClientes, String nombreArchivoOperadores) {
@@ -43,5 +35,6 @@ public class Sistema {
         lineasUsuarios.remove(0); //remover la primera linea
 
 //            for (Usuario usuario: )
-    }
+        }
 }
+

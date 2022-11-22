@@ -4,6 +4,7 @@
  */
 
 package com.mycompany.proyecto1p_rosario_garcia_guerrero;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,5 +14,7 @@ public class Proyecto1P_Rosario_Garcia_Guerrero {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        ArrayList<String> strings = ManejoArchivos.LeeFichero("usuarios.txt");
+        System.out.println(strings);
     }
 }
