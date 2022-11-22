@@ -34,12 +34,16 @@ public class Itinerario {
         for (int i = 1; i <= itinerario.size() - 1; i++) {
             String[] lista = itinerario.get(i).split(",");
             codigoiti.add(lista[0]);
+            
+            
 //            origen.add(lista[1]);
 //            destino.add(lista[2]);
 //            duracion.add(lista[3]);
 //            horaSalida.add(lista[4]);
 //            horaLlegada.add(lista[5]);
 //            System.out.println(codigoiti);
+
+
             if (!listaiti.contains(lista[1])) {
                 listaiti.add(lista[1]);
 
