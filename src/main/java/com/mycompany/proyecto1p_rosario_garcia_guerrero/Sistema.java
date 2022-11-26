@@ -24,7 +24,7 @@ public class Sistema {
         // TODO code application logic here
         cargarUsuario("usuarios.txt","clientes.txt","operadores.txt");
         Usuario usu = iniciarSesion();
-        String rol = usu.getRol(); //se necesita el get
+        char rol = usu.getRol(); //se necesita el get
 
         Itinerario iti = new Itinerario(itinerarios);
         Vuelo vue = new Vuelo(vuelos, itinerarios);
@@ -33,7 +33,6 @@ public class Sistema {
 //        System.out.println(vue);
 
     }
- //getters y setters
 
     //Cargar datos de txt a las ArrayList de Usuario, Vuelos, etc
     public static void cargarUsuario(String archivoUsuario, String archivoClientes, String archivoOperadores) {
@@ -190,8 +189,39 @@ public class Sistema {
 
         }
     
-    public static void mostrarMenu(){
-        
+    public static void mostrarMenu(char rol){
+        Scanner sc = new Scanner(System.in);
+        if ( rol=='S' || rol=='V' ){ //son char por lo que se puede usar ==
+            
+            System.out.println("1. Comprar tickets aereos");
+            System.out.println("2. Consultar reservas");
+            System.out.println("3. Salir");
+            System.out.println("Escriba el numero de la opción que escogio:");
+            int op = sc.nextInt();
+            sc.nextLine();
+            
+            switch (op){
+                case 1:
+                case 2:
+                case 3:
+                    System.out.println("FIn del Programa.");
+            }
+            
+        } if (rol=='O'){
+            
+            System.out.println("1. Consultar usuarios");
+            System.out.println("2. Consultar Reservas");
+            System.out.println("3. Salir");
+            System.out.println("Escriba el numero de la opción que escogio:");
+            int op = sc.nextInt();
+            sc.nextLine();
+            
+            switch (op){
+                case 1:
+                case 2:
+                case 3:
+                    System.out.println("FIn del Programa.");
+        }
     }
 }
 
