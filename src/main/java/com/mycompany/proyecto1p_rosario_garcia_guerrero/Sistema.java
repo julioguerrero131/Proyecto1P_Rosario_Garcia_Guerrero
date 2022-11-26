@@ -5,6 +5,7 @@
 package com.mycompany.proyecto1p_rosario_garcia_guerrero;
 import java.util.ArrayList;
 import manejoArchivos.ManejoArchivos;
+import java.util.Scanner;
 /**
  *
  *  @author julio
@@ -21,12 +22,17 @@ public class Sistema {
 
     public static void main(String[] args) {
         // TODO code application logic here
+        cargarUsuario("usuarios.txt","clientes.txt","operadores.txt");
+        Usuario usu = iniciarSesion();
+        String rol = usu.getRol(); //se necesita el get
+
         Itinerario iti = new Itinerario(itinerarios);
         Vuelo vue = new Vuelo(vuelos, itinerarios);
+
 //        System.out.println(iti);
 //        System.out.println(vue);
 
-}
+    }
  //getters y setters
 
     //Cargar datos de txt a las ArrayList de Usuario, Vuelos, etc
@@ -150,5 +156,42 @@ public class Sistema {
             }
 
         }
+}
+   
+    public static Usuario iniciarSesion(){
+
+        System.out.println("+++++++++++++++++++++++++++++++++++\n");
+        System.out.println("\n             BIENVENIDO AL SISTEMA                     \n");
+        System.out.println("+++++++++++++++++++++++++++++++++++\n");
+
+        boolean val = false;
+        while (val!=true){
+
+            Scanner sc = new Scanner(System.in);
+            System.out.println("USUARIO: ");
+            String u = sc.nextLine();
+            System.out.println("CONTRASEÑA: ");
+            String p = sc.nextLine();
+
+             for (Usuario usuario:listaUsuario){
+                if (u.equals(usuario.getUsuario())){ //se necesita el getter
+                    String pCorrecta = usuario.getContrasena(); //se necesita el getter
+                    if (p.equals(pCorrecta)){
+                        val = true;
+                        System.out.println("Inicio de Sesión Correcto.\n");
+                        return usuario;
+                    } else {
+                        System.out.println("Contraseña o Usuario incorrectos. Intente de nuevo.\n");
+                    }
+                }
+            }
+        }
+
+
+        }
+    
+    public static void mostrarMenu(){
+        
+    }
 }
 
