@@ -16,13 +16,19 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
         ArrayList<String> lineas = ManejoArchivos.LeeFichero("usuarios.txt");
         lineas.remove(0);
-        System.out.println(lineas);
+        //System.out.println(lineas);
         
-        System.out.println(lineas);
+        for (String l:lineas) {
+            String[] lista = l.split(",");
+            ArrayList<String> temp = new ArrayList<>();
+            for (String e:lista){
+                temp.add(e);
+            }
+            System.out.println(temp);
+        }
         
     }
     
