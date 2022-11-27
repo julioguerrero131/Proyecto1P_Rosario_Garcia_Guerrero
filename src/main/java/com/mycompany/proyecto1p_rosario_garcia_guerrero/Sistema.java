@@ -6,6 +6,7 @@ package com.mycompany.proyecto1p_rosario_garcia_guerrero;
 import java.util.ArrayList;
 import manejoArchivos.ManejoArchivos;
 import java.util.Scanner;
+import enums.Disponibilidad;
 /**
  *
  *  @author julio
@@ -16,6 +17,7 @@ public class Sistema {
      */
 //    private static ArrayList<Usuario> listaUsuario;
     public static ArrayList<Usuario> listaUsuario;
+    public static ArrayList<Asiento> listaAsiento;
     private static ArrayList<Reserva> listaReserva;
     private static ArrayList<String> itinerarios = ManejoArchivos.LeeFichero("itinerarios.txt");
     private static ArrayList<String> vuelos = ManejoArchivos.LeeFichero("vuelos.txt");
@@ -156,14 +158,40 @@ public class Sistema {
 
         }
 }
+    
+    public static void cargarAsiento(String archivoAsiento){
+        
+         ArrayList<String> lineasA = ManejoArchivos.LeeFichero(archivoAsiento); 
+        lineasA.remove(0);
+        
+        ArrayList<String> codigoAvionL = new ArrayList(); //archivo asientos.txt
+        ArrayList<String> numAsientoL = new ArrayList();
+        ArrayList<String> disponibleL = new ArrayList(); 
+        
+        for (String l:lineasA){
+            String[] datos = l.split(",");
+            codigoAvionL.add(datos[0]);
+            numAsientoL.add(datos[1]);
+            disponibleL.add(datos[2]);
+        }
+        
+        for (int i=0;i<codigoAvionL.size()-1;i++) {
+            String cod = codigoAvionL.get(i);
+            String num = numAsientoL.get(i);
+            Disponibilidad dis = Disponibilidad.valueOf(disponibleL.get(i));
+            Asiento asiento = new Asiento(cod, num, dis);
+            listaAsiento.add(asiento);
+        }
+    }
    
-    public static Usuario iniciarSesion(){
+    public static Usuario iniciarSesion(){ //corregir
 
         System.out.println("+++++++++++++++++++++++++++++++++++\n");
         System.out.println("\n             BIENVENIDO AL SISTEMA                     \n");
         System.out.println("+++++++++++++++++++++++++++++++++++\n");
 
         boolean val = false;
+        Usuario us;
         while (val!=true){
 
             Scanner sc = new Scanner(System.in);
@@ -171,23 +199,24 @@ public class Sistema {
             String u = sc.nextLine();
             System.out.println("CONTRASEÑA: ");
             String p = sc.nextLine();
+            
 
              for (Usuario usuario:listaUsuario){
-                if (u.equals(usuario.getUsuario())){ //se necesita el getter
-                    String pCorrecta = usuario.getContrasena(); //se necesita el getter
+                if (u.equals(usuario.getUser())){ //se necesita el getter
+                    String pCorrecta = usuario.getPassword(); //se necesita el getter
                     if (p.equals(pCorrecta)){
                         val = true;
                         System.out.println("Inicio de Sesión Correcto.\n");
-                        return usuario;
+                        us=usuario;
                     } else {
                         System.out.println("Contraseña o Usuario incorrectos. Intente de nuevo.\n");
                     }
                 }
             }
         }
+        return us;
 
-
-        }
+     }
     
     public static void mostrarMenu(char rol){
         Scanner sc = new Scanner(System.in);
