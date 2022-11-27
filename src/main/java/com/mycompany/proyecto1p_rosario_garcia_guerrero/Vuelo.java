@@ -39,6 +39,8 @@ public class Vuelo extends Itinerario {
             codigo.add(lis[0]);
             codigoAvion.add(lis[1]);
         }
+        
+        
 
         System.out.println("-----ORIGEN-----");
         for (int x = 1; x <= lista_ori.size(); x++) {

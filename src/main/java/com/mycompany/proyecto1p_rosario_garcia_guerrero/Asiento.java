@@ -48,13 +48,11 @@ public class Asiento {
     }
       
         public void asignarAsiento(){
-            Vuelo vueloPrueba = new Vuelo(Sistema.getVuelos(), Sistema.getItinerarios());
-            ArrayList listaCodigosAvion = vueloPrueba.getCodigoAvion();
-            ArrayList listaCodigos = vueloPrueba.getCodigo();
-            System.out.println(listaCodigosAvion);
-            for(int i = 1; i <= listaCodigosAvion.size() - 1; i++){
-                String[] in = listaCodigosAvion.get(i).split(",");
-                
+            Vuelo 
+            for(int i = 1; i <= Sistema.getVuelos().size() - 1; i++){
+                String[] in = Sistema.getVuelos().get(i).split(",");
+                  codigo.add(lis[0]);
+                  codigoAvion.add(lis[1]);
             }
         
             for(Asiento a: Sistema.listaAsiento){
