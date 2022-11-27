@@ -21,6 +21,10 @@ public class Sistema {
     private static ArrayList<String> itinerarios = ManejoArchivos.LeeFichero("itinerarios.txt");
     private static ArrayList<String> vuelos = ManejoArchivos.LeeFichero("vuelos.txt");
 
+    
+    
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
         Itinerario iti = new Itinerario(itinerarios);
@@ -29,10 +33,6 @@ public class Sistema {
 //        System.out.println(vue);
 
     }
-    
-    
-    
-    
     
     //getters y setters
 
