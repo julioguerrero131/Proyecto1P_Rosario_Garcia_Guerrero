@@ -1,6 +1,6 @@
 package com.mycompany.proyecto1p_rosario_garcia_guerrero;
 
-public class Usuario extends Sistema{
+public class Usuario {
 
    protected String cedula;
    protected String nombres;
@@ -9,9 +9,9 @@ public class Usuario extends Sistema{
    protected String user;
    protected String password;
    protected char rol;
+   
 
    public Usuario(String cedula, String nombres, int edad, String mail, String user, String password, char rol){
-    super(listaUsuario);
     this.cedula = cedula;
     this.nombres = nombres;
     this.edad = edad;
@@ -20,10 +20,6 @@ public class Usuario extends Sistema{
     this.password = password;
     this.rol = rol;
    }
-    
-   Cliente cliente = new Cliente (cedula, nombres, edad, mail, user, password, rol, numTarjeta);
-   ClienteVIP clienteVip = new ClienteVIP (nombres, edad, mail, user, password, rol, numTarjeta, tipoVIP, millas);
-   Operador operador = new Operador (nombres, edad, mail, user, password, rol, sueldo);
 
     public String getCedula() {
         return cedula;
@@ -85,8 +81,5 @@ public class Usuario extends Sistema{
         
     }
   
-   public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
 }
