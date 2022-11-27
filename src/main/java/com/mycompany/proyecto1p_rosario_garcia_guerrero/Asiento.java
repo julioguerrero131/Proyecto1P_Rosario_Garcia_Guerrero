@@ -47,22 +47,7 @@ public class Asiento {
         this.estado = estado;
     }
       
-        public void asignarAsiento(){
-            Vuelo 
-            for(int i = 1; i <= Sistema.getVuelos().size() - 1; i++){
-                String[] in = Sistema.getVuelos().get(i).split(",");
-                  codigo.add(lis[0]);
-                  codigoAvion.add(lis[1]);
-            }
-        
-            for(Asiento a: Sistema.listaAsiento){
-                if(a.estado==Disponibilidad.S){
-                      int num = (int)(Math.random()*6);
-                      Asiento asientoDisponible = Sistema.listaAsiento.get(num);
-                      System.out.println("");
-                }
-            }
-        }
+       
 
         
 }

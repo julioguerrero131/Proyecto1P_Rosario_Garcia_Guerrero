@@ -1,59 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.proyecto1p_rosario_garcia_guerrero;
 import java.util.ArrayList;
 import manejoArchivos.ManejoArchivos;
 import java.util.Scanner;
-import enums.Disponibilidad;
-/**
- *
- *  @author julio
- */
+
 public class Sistema {
-       /**
-     * @param args the command line arguments
-     */
-//    private static ArrayList<Usuario> listaUsuario;
     public static ArrayList<Usuario> listaUsuario;
     public static ArrayList<Asiento> listaAsiento;
-    private static ArrayList<Reserva> listaReserva;
-    private static ArrayList<String> itinerarios = ManejoArchivos.LeeFichero("itinerarios.txt");
-    private static ArrayList<String> vuelos = ManejoArchivos.LeeFichero("vuelos.txt");
+    public static ArrayList<Itinerario> listaItinerario;
+    public static ArrayList<Vuelo> listaVuelo;
+    public static ArrayList<Avion> listaAvion;
+    
 
-    
-    
-    
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO code application logic here 
         cargarUsuario("usuarios.txt","clientes.txt","operadores.txt");
+        cargarAsiento("asientos.txt");
+        cargarItinerario("itinerarios.txt");
+        cargarVuelo("vuelos.txt");
         Usuario usu = iniciarSesion();
-        char rol = usu.getRol(); //se necesita el get
 
-        Itinerario iti = new Itinerario(itinerarios);
-        Vuelo vue = new Vuelo(vuelos, itinerarios);
-       
-//        System.out.println(iti);
-//        System.out.println(vue);
+        mostrarMenu(usu);
 
-    }
 
-    public static ArrayList<String> getItinerarios() {
-        return itinerarios;
-    }
-
-    public static void setItinerarios(ArrayList<String> itinerarios) {
-        Sistema.itinerarios = itinerarios;
-    }
-
-    public static ArrayList<String> getVuelos() {
-        return vuelos;
-    }
-
-    public static void setVuelos(ArrayList<String> vuelos) {
-        Sistema.vuelos = vuelos;
     }
 
     
@@ -205,6 +174,84 @@ public class Sistema {
             listaAsiento.add(asiento);
         }
     }
+    
+    public static void cargarItinerario(String archivoItineario){
+        ArrayList<String> lineasI = ManejoArchivos.LeeFichero(archivoItineario); 
+        lineasI.remove(0);
+        
+        ArrayList<String> codigoL = new ArrayList(); //archivo itinerarios.txt
+        ArrayList<String> origenL = new ArrayList();
+        ArrayList<String> destinoL = new ArrayList(); 
+        ArrayList<String> horaSalidaL = new ArrayList(); 
+        ArrayList<String> horaLlegadaL = new ArrayList(); 
+        ArrayList<String> duracionL = new ArrayList(); 
+        
+        for (String l:lineasI){
+            String[] datos = l.split(",");
+            codigoL.add(datos[0]);
+            origenL.add(datos[1]);
+            destinoL.add(datos[2]);
+            horaSalidaL.add(datos[3]);
+            horaLlegadaL.add(datos[4]);
+            duracionL.add(datos[5]);
+
+        }
+        
+        for (int i=0;i<codigoL.size()-1;i++) {
+            String cod = codigoL.get(i);
+            String ori = origenL.get(i);
+            String des = origenL.get(i);
+            String hS = horaSalidaL.get(i);
+            String hL = horaLlegadaL.get(i);
+            String dur = duracionL.get(i);
+            Itinerario itinerario = new Itinerario(cod, ori, des, hS, hL, dur);
+            listaItinerario.add(itinerario);
+        }
+    }
+    
+    public static void cargarVuelo(String archivoVuelo){
+        ArrayList<String> lineasI = ManejoArchivos.LeeFichero(archivoVuelo); 
+        lineasI.remove(0);
+        
+        ArrayList<String> codigoL = new ArrayList(); //archivo itinerarios.txt
+        ArrayList<String> codigoAvionL = new ArrayList();
+        ArrayList<String> fechaSalidaL = new ArrayList(); 
+        ArrayList<String> fechaLlegadaL = new ArrayList(); 
+        ArrayList<String> codigoItinerarioL = new ArrayList(); 
+        ArrayList<String> precioL = new ArrayList(); 
+        ArrayList<String> precioMillasL = new ArrayList(); 
+        
+        for (String l:lineasI){
+            String[] datos = l.split(",");
+            codigoL.add(datos[0]);
+            codigoL.add(datos[0]);
+
+        }
+        
+        for (int i=0;i<codigoL.size()-1;i++) {
+            String cod = codigoL.get(i);
+            String codA = codigoAvionL.get(i);
+            Avion av = null;
+            for (Avion a:listaAvion){
+                if (codA.equals(a.getCodigo())){ //SE NECESITA EL GET
+                    av=a;
+                }
+            }
+            String fS = fechaSalidaL.get(i);
+            String fL = fechaLlegadaL.get(i);
+            String codI = codigoItinerarioL.get(i);
+            Itinerario it = null;
+            for (Itinerario iti:listaItinerario){
+                if (codI.equals(it.getCodigo())){ //SE NECESITA EL GET
+                    it = iti;
+                }
+            }
+            String p = precioL.get(i);
+            String pM = precioMillasL.get(i);
+            Vuelo vuelo = new Vuelo(cod, av, fS, fL, codI, it);
+            listaVuelo.add(vuelo);
+        }
+    }
    
     public static Usuario iniciarSesion(){ //corregir
 
@@ -240,7 +287,7 @@ public class Sistema {
 
      }
     
-    public static void mostrarMenu(char rol){
+    public static void mostrarMenu(Usuario usuario){
         Scanner sc = new Scanner(System.in);
         if ( rol=='S' || rol=='V' ){ //son char por lo que se puede usar ==
             
@@ -274,6 +321,7 @@ public class Sistema {
                     System.out.println("FIn del Programa.");
         }
     }
-}
+} //corregir 
+    
 }
 
