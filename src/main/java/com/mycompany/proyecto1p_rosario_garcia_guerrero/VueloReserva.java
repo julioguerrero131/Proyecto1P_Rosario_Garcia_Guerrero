@@ -21,4 +21,11 @@ public class VueloReserva {
         this.tarifa = tarifa;
         this.asiento = asiento;
     }
+    
+    public void asignarAsiento(){
+            for(String ca: codigoAvionArchivo ){
+                if(ca.equals(get.Vuelo().get.avion())){
+                    System.out.println("Para tu vuelo de" +  );
+                }
+            }
 }

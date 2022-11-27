@@ -5,7 +5,7 @@ import manejoArchivos.ManejoArchivos;
 public class Avion {
     protected String codigoAvion;
     protected int capacidad;
-    protected ArrayList<String> listaAsientosAvion;
+    protected ArrayList<Asiento> listaAsientosAvion;
     protected ArrayList<String> codigoAvionArchivo;
     protected ArrayList<String> capacidadArchivo;
     
@@ -19,12 +19,7 @@ public class Avion {
         }    
     }
     
-    public void asignarAsiento(){
-            for(String ca: codigoAvionArchivo ){
-                if(ca.equals(get.Vuelo().get.avion())){
-                    System.out.println("Para tu vuelo de" + get.Vuelo().get.tipoVuelo() );
-                }
-            }
+   
         
         
         
