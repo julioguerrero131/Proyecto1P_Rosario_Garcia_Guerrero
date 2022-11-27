@@ -36,7 +36,23 @@ public class Sistema {
 
     }
 
+    public static ArrayList<String> getItinerarios() {
+        return itinerarios;
+    }
 
+    public static void setItinerarios(ArrayList<String> itinerarios) {
+        Sistema.itinerarios = itinerarios;
+    }
+
+    public static ArrayList<String> getVuelos() {
+        return vuelos;
+    }
+
+    public static void setVuelos(ArrayList<String> vuelos) {
+        Sistema.vuelos = vuelos;
+    }
+
+    
     //Cargar datos de txt a las ArrayList de Usuario, Vuelos, etc
     public static void cargarUsuario(String archivoUsuario, String archivoClientes, String archivoOperadores) {
 
