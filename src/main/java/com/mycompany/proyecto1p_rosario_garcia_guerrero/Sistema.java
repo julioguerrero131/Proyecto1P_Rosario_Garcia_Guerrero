@@ -1,19 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.proyecto1p_rosario_garcia_guerrero;
 import java.util.ArrayList;
 import manejoArchivos.ManejoArchivos;
 import java.util.Scanner;
-/**
- *
- *  @author julio
- */
+
 public class Sistema {
-       /**
-     * @param args the command line arguments
-     */
     public static ArrayList<Usuario> listaUsuario;
     public static ArrayList<Asiento> listaAsiento;
     public static ArrayList<Itinerario> listaItinerario;
@@ -29,27 +19,10 @@ public class Sistema {
         cargarItinerario("itinerarios.txt");
         cargarVuelo("vuelos.txt");
         Usuario usu = iniciarSesion();
+
         mostrarMenu(usu);
 
-//        System.out.println(iti);
-//        System.out.println(vue);
 
-    }
-
-    public static ArrayList<String> getItinerarios() {
-        return itinerarios;
-    }
-
-    public static void setItinerarios(ArrayList<String> itinerarios) {
-        Sistema.itinerarios = itinerarios;
-    }
-
-    public static ArrayList<String> getVuelos() {
-        return vuelos;
-    }
-
-    public static void setVuelos(ArrayList<String> vuelos) {
-        Sistema.vuelos = vuelos;
     }
 
     
