@@ -31,7 +31,6 @@ public class Vuelo {
         this.precio = precio; 
         this.precioMillas = precioMillas; 
     }
-<<<<<<< HEAD
     
     //getters y setters
     public String getCodigo(){
@@ -90,6 +89,4 @@ public class Vuelo {
         this.precioMillas = precioMillas;
     }
     
-=======
->>>>>>> origin/main
 }
