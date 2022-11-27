@@ -22,7 +22,10 @@ public class Operador extends Usuario{
         System.out.println("Lista de usuarios:");
         for(Usuario u: Sistema.listaUsuario){
             if(u.getRol()=='O'){
-                System.out.println(u.getNombres() + "," + u.getRol() + "," + sueldo);
+                Operador operadorPrueba = new Operador(cedula, nombres, edad, mail, user, password, rol, sueldo );
+                if(u.getCedula().equals(operadorPrueba.getCedula())){
+                    System.out.println(u.getNombres() + "," + u.getRol() + "," + operadorPrueba.getSueldo());
+                }
                 
             }else {
                 System.out.println(u.getNombres() + "," + u.getRol() + "," + u.getCedula());
