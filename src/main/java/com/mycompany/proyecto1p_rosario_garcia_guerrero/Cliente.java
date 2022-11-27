@@ -8,12 +8,12 @@ public class Cliente extends Usuario {
      this.num_tarjeta = num_tarjeta;
     
   }
-
-    Cliente(String cedula, String nombres, int edad, String mail, String user, String password, char rol, String numTarjeta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  
+    public crearReserva(){
+        Reserva reserva = new Reserva();
     }
     
-     @Override
+    @Override
     public String consultarReserva(){
         return null;
     }

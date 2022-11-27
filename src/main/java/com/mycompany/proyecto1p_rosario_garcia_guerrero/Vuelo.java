@@ -40,4 +40,53 @@ public class Vuelo {
         this.codigo = codigo;
     }
     
+    public Avion getAvion(){
+        return avion;
+    }
+    public void setAvion(Avion avion){
+        this.avion = avion;
+    }
+    
+    public String getFechaSalida(){
+        return fechaSalida;
+    }
+    public void setFechaSalida(String fechaSalida){
+        this.fechaSalida = fechaSalida;
+    }
+    
+    public String getFechaLlegada(){
+        return fechaLlegada;
+    }
+    public void setFechaLlegada(String fechaLlegada){
+        this.fechaLlegada = fechaLlegada;
+    }
+
+    public Itinerario getItinerario(){
+        return itinerario;
+    }
+    public void setItinerario(Itinerario itinerario){
+        this.itinerario = itinerario;
+    }
+    
+     public TipoVuelo getTipoVuelo(){
+        return tipoVuelo;
+    }
+    public void setTipoVuelo(TipoVuelo tipoVuelo){
+        this.tipoVuelo = tipoVuelo;
+    }
+    
+    public double getPrecio(){
+        return precio;
+    }
+    public void setPrecio(double precio){
+        this.precio = precio;
+    }
+    
+    public double getPrecioMillas(){
+        return precioMillas;
+    }
+    public void setPrecioMillas(double precioMillas){
+        this.precioMillas = precioMillas;
+    }
+    
 }

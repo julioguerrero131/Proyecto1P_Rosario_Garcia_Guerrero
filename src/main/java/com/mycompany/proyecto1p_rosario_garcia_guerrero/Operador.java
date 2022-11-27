@@ -10,10 +10,6 @@ public class Operador extends Usuario{
     
   }
 
-    Operador(String nombres, int edad, String mail, String user, String password, char rol, double sueldo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public double getSueldo() {
         return sueldo;
     }

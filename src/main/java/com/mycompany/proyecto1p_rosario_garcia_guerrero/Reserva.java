@@ -53,5 +53,11 @@ public class Reserva {
         this.valorMillas = valorMillas;     
     }
     
+    public ArrayList<VueloReserva> getVuelosEscogidos(){
+        return vuelosEscogidos;
+    }
+    public void setVuelosEscogidos(ArrayList<VueloReserva> vuelosEscogidos){
+        this.vuelosEscogidos = vuelosEscogidos;
+    }
 
 }

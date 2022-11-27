@@ -32,4 +32,39 @@ public class Itinerario {
     public void setCodigo(String codigo){
         this.codigo = codigo;
     }
+    
+    public String getOrigen(){
+        return origen;
+    }
+    public void setOrigen(String origen){
+        this.origen = origen;
+    }
+    
+    public String getDestino(){
+        return destino;
+    }
+    public void setDestino(String destino){
+        this.destino = destino;
+    }
+    
+    public String getHoraSalida(){
+        return horaSalida;
+    }
+    public void setHoraSalida(String horaSalida){
+        this.horaSalida = horaSalida;
+    }
+    
+    public String getHoraLlegada(){
+        return horaLlegada;
+    }
+    public void setHoraLlegada(String horaLlegada){
+        this.horaLlegada = horaLlegada;
+    }
+    
+    public String getDuracion(){
+        return duracion;
+    }
+    public void setDuracion(String duracion){
+        this.duracion = duracion;
+    }
 }

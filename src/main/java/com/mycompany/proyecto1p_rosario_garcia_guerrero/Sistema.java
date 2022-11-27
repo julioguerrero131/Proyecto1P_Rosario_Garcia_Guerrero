@@ -316,6 +316,7 @@ public class Sistema {
     
     public static void mostrarMenu(Usuario usuario){
         Scanner sc = new Scanner(System.in);
+        char rol = usuario.getRol();
         if ( rol=='S' || rol=='V' ){ //son char por lo que se puede usar ==
             
             System.out.println("1. Comprar tickets aereos");
@@ -325,11 +326,57 @@ public class Sistema {
             int op = sc.nextInt();
             sc.nextLine();
             
-            switch (op){
-                case 1:
+            switch (op){ 
+                
+                case 1: //Comprar tickets aereos
+                    
+                    //Arraylist<Vuelo> vuelosE= new ArryaList();
+                    int cont = 1;
+                    System.out.println("----------ORIGEN-----------");
+                    for (Itinerario itinerario: listaItinerario){
+                        System.out.println(cont+"."+itinerario.getOrigen());
+                        cont++;
+                    }
+                    System.out.println("Elige punto de partida:");
+                    int ori = sc.nextInt();
+                    sc.nextLine();
+                    
+                    System.out.println("----------DESTINO-----------");
+                    for (Itinerario itinerario: listaItinerario){
+                        System.out.println(cont+"."+itinerario.getDestino());
+                        cont++;
+                    }
+                    System.out.println("Elige punto de destino:");
+                    int des = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("*************Paso 1******************");
+                    System.out.println("*************************************");
+                    System.out.println("");
+                    System.out.println("---------------Vuelos Disponibles IDA------------");    
+                    System.out.println("");
+                   
+                    for (Vuelo vuelo: listaVuelo){
+                        boolean value = false;
+                        for (Asiento a: vuelo.getAvion().getListaAsientos()){ //definir get en Avion
+                            if (a.getDisponibilidad()==Disponibilidad.S){
+                                value = true;
+                            }
+                        }
+                        if (value == true) {
+                            System.out.println("-----------------------(cont)---------------------------")
+                            System.out.println();
+                        }
+                        
+                    }
+                    
                 case 2:
+                    
+                    
                 case 3:
+                    
                     System.out.println("FIn del Programa.");
+                    
             }
             
         } if (rol=='O'){
